@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["gantt"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function daysToMilliseconds(days) {
+        return days * 24 * 60 * 60 * 1000;
+      }
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn("string", "Task ID");
+        data.addColumn("string", "Task Name");
+        data.addColumn("string", "Resource");
+        data.addColumn("date", "Start Date");
+        data.addColumn("date", "End Date");
+        data.addColumn("number", "Duration");
+        data.addColumn("number", "Percent Complete");
+        data.addColumn("string", "Dependencies");
+
+        data.addRows([
+          [
+            "Research",
+            "Identification and selection",
+            null,
+            new Date(2021, 3, 10),
+            new Date(2021, 3, 17),
+            daysToMilliseconds(7),
+            100,
+            null,
+          ],
+          [
+            "Identification and selection",
+            "Identification of need  ",
+            "Research",
+            new Date(2021, 3, 10),
+            new Date(2021, 3, 13),
+            daysToMilliseconds(4),
+            100,
+            null,
+          ],
+          [
+            "prioritization",
+            "prioritization",
+            "Research",
+            new Date(2021, 3, 14),
+            new Date(2021, 3, 17),
+            daysToMilliseconds(3),
+            100,
+            "Identification and selection",
+          ],
+
+
+
+          // planing phase
+          [
+            "planning",
+            "planing",
+            null,
+            new Date(2021, 3, 18),
+            new Date(2021, 3, 29),
+            daysToMilliseconds(12),
+            100,
+            null,
+          ],
+          [
+            "introduction",
+            "introduction",
+            "planning",
+            new Date(2021, 3, 18),
+            new Date(2021, 3, 19),
+            daysToMilliseconds(2),
+            100,
+            null,
+          ],
+          [
+            "background for the system",
+            "background for the system",
+            "planning",
+            new Date(2021, 3, 20),
+            new Date(2021, 3, 21),
+            daysToMilliseconds(1),
+            100,
+            null,
+          ],
+          [
+            "problem statement and objective",
+            "problem statement - objective",
+            "planning",
+            new Date(2021, 3, 20),
+            new Date(2021, 3,22),
+            daysToMilliseconds(3),
+            100,
+            null,
+          ],
+          [
+            "project plane",
+            "project plane",
+            "planning",
+            new Date(2021, 3, 23),
+            new Date(2021, 3, 25),
+            daysToMilliseconds(3),
+            100,
+            null,
+          ],
+          [
+            "System requirement",
+            "System requirement",
+            "planning",
+            new Date(2021, 3, 26),
+            new Date(2021, 3, 27),
+            daysToMilliseconds(2),
+            100,
+            "problem statement and objective",
+          ],
+          [
+            " use case",
+            " use case",
+            "1planning",
+            new Date(2021, 3, 28),
+            new Date(2021, 3, 29),
+            daysToMilliseconds(1),
+            100,
+            "problem statement and objective",
+          ]
+        ]);
+
+        var options = {
+          height: 5500,
+        };
+
+        var chart = new google.visualization.Gantt(
+          document.getElementById("chart_div")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+  </body>
+</html>
