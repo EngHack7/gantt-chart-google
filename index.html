@@ -26,14 +26,25 @@
 
         data.addRows([
           [
+            'ch1',
+            'chapter1',
+            null,
+            new Date(2021, 3, 10),
+            new Date(2021, 3, 29),
+            daysToMilliseconds(19),
+            100,
+            null
+          ],
+          [
             "Research",
             "Identification and selection",
-            null,
+            'ch1',
             new Date(2021, 3, 10),
             new Date(2021, 3, 17),
             daysToMilliseconds(7),
             100,
             null,
+
           ],
           [
             "Identification and selection",
@@ -128,7 +139,49 @@
             daysToMilliseconds(1),
             100,
             "problem statement and objective",
-          ]
+          ],
+
+
+
+          // chapter 2
+          [
+            'ch2',
+            'chapter design',
+            null,
+            new Date(2021, 3, 30),
+            new Date(2021, 4, 20),
+            daysToMilliseconds(22),
+            100,
+            null
+          ],
+         [ 'dfd',
+          'data flow diagram',
+          'ch2',
+          new Date(2021, 3, 30),
+          new Date(2021, 4, 1),
+          daysToMilliseconds(3),
+          100,
+          null,
+        ]
+        ,
+        [ 'sequence',
+          'Sequence Diagram',
+          'ch2',
+          new Date(2021, 4, 2),
+          new Date(2021, 4, 6),
+          daysToMilliseconds(5),
+          100,
+          null,
+        ],
+        [ 'stateMachine',
+          'State-Machine Diagram',
+          'ch2',
+          new Date(2021, 4, 7),
+          new Date(2021, 4, 10),
+          daysToMilliseconds(4),
+          100,
+          'sequence',
+        ]
         ]);
 
         var options = {
